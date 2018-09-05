@@ -1,14 +1,9 @@
-#我的word
+#我的笔记
 
-```html
-<div>
-  <h2>34</h2>
-第一个
-</div>
-```
-```sql
-select * from table where io limit 1,10
-```
+markdown
+快速打开任何降价预览 ctrl-shift-m
+具有持久性宏支持的数学渲染，切换为 ctrl-shift-x
+
 ###字符模版
 
 ```javascript
