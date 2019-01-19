@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ajax</title>
+</head>
+<body>
+<script type="text/javascript">
+	
+	var xml;
+	if(window.XMLHttpRequest){
+		xml = new XMLHttpRequest();
+	}else{
+		xml = new ActiveXObject("Microsoft.XMLHTTP");
+	}	
+	
+	xml.onreadystatechange=function(){
+		if(xml.readyState==4 && xml.status == 200){ 
+            document.getElementById("divt").innerHTML=xml.responseText;
+		}
+	}
+	xml.open("GET","2.txt",true);
+	xml.send();
+	console.log(xml);
+</script>
+<div id="divt">123</div>
+</body>
+</html>
