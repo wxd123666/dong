@@ -10,26 +10,26 @@
     <script>
         //字符权重值排序，如果权重值相同按字符串比较（字符串比较大小规则按charCode值,具体方法value.charCodeAt()）
         //我的方法
-        // function orderWeight(strang){
-        //    let newstrang = strang.split(" ");
-        //    let weight = a=>a.split("").reduce((p,c)=> parseInt(p)+parseInt(c));
-        //    for(let i=0;i<newstrang.length-1;i++){
-        //        for(let j=0;j<newstrang.length-i-1;j++){
-        //            let arr=newstrang[j];
-        //            if(weight(newstrang[j])>weight(newstrang[j+1])){
-        //               newstrang[j]=newstrang[j+1];
-        //               newstrang[j+1]=arr;
-        //            }
-        //            if(weight(newstrang[j])==weight(newstrang[j+1])){
-        //               if(newstrang[j]>newstrang[j+1]){
-        //                 newstrang[j]=newstrang[j+1];
-        //                 newstrang[j+1]=arr;
-        //               }
-        //            }
-        //        }
-        //    }
-        //    return newstrang.join(" ");
-        // }
+        function orderWeight(strang){
+           let newstrang = strang.split(" ");
+           let weight = a=>a.split("").reduce((p,c)=> parseInt(p)+parseInt(c));
+           for(let i=0;i<newstrang.length-1;i++){
+               for(let j=0;j<newstrang.length-i-1;j++){
+                   let arr=newstrang[j];
+                   if(weight(newstrang[j])>weight(newstrang[j+1])){
+                      newstrang[j]=newstrang[j+1];
+                      newstrang[j+1]=arr;
+                   }
+                   if(weight(newstrang[j])==weight(newstrang[j+1])){
+                      if(newstrang[j]>newstrang[j+1]){
+                        newstrang[j]=newstrang[j+1];
+                        newstrang[j+1]=arr;
+                      }
+                   }
+               }
+           }
+           return newstrang.join(" ");
+        }
  
         //别人的方法
         const orderWeight=strang=>{
