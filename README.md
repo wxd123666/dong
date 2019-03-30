@@ -152,6 +152,11 @@ server {
 
 
 
+v-bind  :
+v-on    @
+v-modal
+反向代理
+v-for=“i in arr”    {{i}}
 
 
 

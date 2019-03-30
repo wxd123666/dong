@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     let arr=[1,[2,3,[4,5]],6,7];
+     console.log(typeof(arr));
+     let arrto=arr.toString();
+     let newarr=[];
+     function arrfilt(array){      
+         for(let i=0;i<array.length;i++){
+            if(Array.isArray(array[i])){
+                arrfilt(array[i])
+            }else{
+                newarr.push(array[i]);
+               
+            }
+         }        
+     }
+     arrfilt(arr);
+     console.log(...arr);
+     console.log(newarr,"22");
+      
+    function func(n,k){
+        document.write(k,"<br/>");
+        console.log(arguments.length)
+        return {
+             func:function(m){
+                 return func(m,n);
+             }
+        }
+    }
+    var a= func(10); a.func(20); a.func(30);a.func(40);
+    var b= func(50).func(60).func(70).func(80);
+    var c= func(100).func(200); c.func(300);a.func(400);
+    
+
+     // 闭包 防抖  截流
+     //class
+     //canvas画线
+
+    // var foo=1;
+    // function bar(){
+    //     if(!foo){
+    //       foo=10;
+    //     }
+    //     console.log(foo);
+
+    // }
+    //  bar();
+    console.log("-------------")
+     
+    </script>
+</body>
+</html>

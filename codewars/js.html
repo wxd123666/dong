@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // var n=0;
+    //  function a(){
+    //       var n=10;
+    //       function b(){
+    //           n++;
+    //           console.log(n)
+    //       }
+    //       b();
+    //       return b;
+    //  }
+    //  var c = a();
+    //  c();
+    //  console.log(n);
+
+    //  var a=10,b=11,c=12;
+    //  function test(a){
+    //      a=1;
+    //      var b=3;
+    //      c=5;
+    //  }
+    //  test();
+    //  console.log(a,b,c);
+
+    //  var a=4;
+    //  function b(x,y,a){
+    //      console.log(a);
+    //      arguments[2]=10;
+    //      console.log(a);
+    //  }
+    //  a=b(1,2,8);
+    //  console.log(a);
+    //  //argument 和形参的映射机制建立在函数执行后形参赋值的一瞬间
+
+    //  var ii=12 || 19;
+    //  var ii2=12 && 19;
+    //  console.log(ii,ii2) 
+
+    // var a=9;
+    // function fn(){
+    //     a=0;
+    //     return function(b){
+    //         return b+a++;
+    //     }
+    // }
+    // var f=fn();
+    // console.log(f(5));
+    // console.log(fn()(5));
+    // console.log(f(5));
+    // console.log(a);
+
+    // var ary=[1,2,3,4];
+    // function fn(ary){
+    //     ary[0]=0;
+    //     ary=[0];
+    //     ary[0]=100;
+    //     return ary;
+    // }
+    // var res = fn(ary);
+    // console.log(ary);
+    // console.log(res);
+
+    // function fn(i){
+    //     return function(n){
+    //         console.log(n+(i++));
+    //     }
+    // }
+    // var f = fn(10);
+    // console.log(f(20));
+    //  console.log(fn(20)(40));
+    //  console.log(fn(30)(50));
+    //  console.log(f(30));
+
+    // var i=10;
+    // function fn(){
+    //     return function(n){
+    //         console.log(n+(++i));
+    //     }
+    // }
+    // var f=fn();
+    // console.log(f(20));
+    // console.log(fn()(20));
+    // console.log(fn()(30));
+    // console.log(f(30));
+
+    // var num = 10;
+    // var obj={num:20};
+    // obj.fn=(function(num){
+    //     this.num=num*3;
+    //     num++;
+    //     return function(n){
+    //         this.num+=n;
+    //         num++;
+    //         console.log(num)
+    //     }
+    // })(obj.num);
+    // var fn=obj.fn;
+    // fn(5);
+    // obj.fn(10);
+    // console.log(num,obj.num);
+
+    // var fune=(function(a){
+    //     this.a=a;
+    //     console.log(a);
+    //     return function(a){
+    //         console.log(a);
+    //         a+=this.a;
+    //         return a;
+    //     }
+    //     })(function(a,b){
+    //         return a;
+    // }(1,2));
+    // console.log(fune(4))
+
+    function sort(arr){
+        for(var i=0;i<arr.length-1;i++){
+            for(var j=0;j<arr.length-1-i;j++){
+                if(arr[j]>arr[j+1]){
+                    var temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                }
+            }
+        }
+        return arr;
+    }
+    var a=[3,1,5,9,4,5,2,5];
+    console.log(sort(a));
+</script>
+</body>
+</html>
