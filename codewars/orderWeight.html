@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>orderweight</title>
 </head>
 <body>
+  <h1>1234</h1>
     <script>
         //字符权重值排序，如果权重值相同按字符串比较（字符串比较大小规则按charCode值,具体方法value.charCodeAt()）
         //我的方法
@@ -30,7 +31,7 @@
            }
            return newstrang.join(" ");
         }
- 
+
         //别人的方法
         const orderWeight=strang=>{
             let numWeight = n => Array.from(n).reduce((p,c)=> p+=parseInt(c),0)
