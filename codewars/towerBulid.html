@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+function towerBuilder(nFloors) {
+    // build here
+    let str=[];
+    let val="*";
+    for(let i=0;i<nFloors;i++){
+       let v=val.repeat(i*2+1);
+       let n=" ".repeat(nFloors-i-1);
+       str[i]=n+v+n;
+    }
+    return str;
+} 
+console.log(towerBuilder(4))
+</script>
+<!-- <script>
+function towerBuilder(n) {
+  return Array.from({length: n}, function(v, k) {
+    const spaces = ' '.repeat(n - k - 1);
+    return spaces + '*'.repeat(k + k + 1) + spaces;
+  });
+}
+</script> -->
+</body>
+</html>
