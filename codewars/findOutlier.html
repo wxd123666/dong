@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //寻找奇数数组中偶数，找出偶数数组中的奇数
+function findOutlier(integers){
+   let even= integers.filter(req=>req%2==0);
+   let odd= integers.filter(req=>req%2!==0);
+   return even.length==1?even:odd;
+} 
+console.log(findOutlier([0, 2,4,1]))
+    </script>
+</body>
+</html>
