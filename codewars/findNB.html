@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>已知和求等差立方和的最大项</title>
+</head>
+<body>
+<script>
+function findNb(m) {
+
+    //已知和求等差立方和的最大项
+    //01
+    // let n=parseInt(Math.pow(m,1/2));
+    // if(n!==Math.pow(m,1/2)){
+    //     return -1;
+    // }else{
+    //     let nn=2*n;
+    //     let p=parseInt(Math.pow(nn,1/2));
+    //     return p*(p+1)==nn?p:-1
+    // }
+
+    //02
+    // let n=0;
+    // let sum=0;
+    // while(sum<m){
+    //     n++;
+    //     sum+=Math.pow(n,3)
+    // }
+    // return sum===m?n:-1
+
+    //03
+    let n=0;
+    while(m>0)m-=++n**3;
+    return m?-1:n
+    
+ }
+
+ 
+  console.log(findNb(4183059834009))
+</script>
+</body>
+</html>

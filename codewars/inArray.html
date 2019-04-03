@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+//找出数组1中可以匹配数组2中某一项的值
+// #Example 1: a1 = ["arp", "live", "strong"]
+// a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
+// returns ["arp", "live", "strong"]
+// #Example 2: a1 = ["tarp", "mice", "bull"]
+// a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
+// returns []
+
+let a2 = ["lively", "alive", "harp", "sharp", "armstrong"];
+let a1 = ["xyz", "live", "strong","arp"];
+//let a1 = ["tarp", "mice", "bull"];
+function inArray(array1,array2){
+    return array1.filter(req=>{
+       return array2.some(n=>n.indexOf(req)>=0)==true;
+    }).sort();
+}
+console.log(inArray(a1, a2));    
+    </script>
+</body>
+</html>
