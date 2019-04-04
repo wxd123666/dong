@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>persistence</title>
+</head>
+<body>
+    <script>
+// persistence(39) === 3 // because 3*9 = 27, 2*7 = 14, 1*4=4
+//                        // and 4 has only one digit
+
+//  persistence(999) === 4 // because 9*9*9 = 729, 7*2*9 = 126,
+//                         // 1*2*6 = 12, and finally 1*2 = 2
+
+//  persistence(4) === 0 // because 4 is already a one-digit number
+      function persistence(num){
+           let n=0;
+           let arr=num.toString().split("");
+           let sum=(...r)=>[...r][0].reduce((p,c)=>p*=c);
+           while(arr.length>1){
+               arr=sum(arr).toString().split("");
+               n++;
+           }        
+           return n;
+
+        //other
+        return `${num}`.length>1
+        ?1+persistence(`${num}`.split("").reduce((p,c)=>p*c))
+        :0
+      
+      }   
+      console.log(persistence(999)) 
+      
+    </script>
+</body>
+</html>

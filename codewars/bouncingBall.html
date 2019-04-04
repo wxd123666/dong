@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>bouncingBall</title>
+</head>
+<body>
+<script>
+function bouncingBall(h,bounce,window){
+    //小球从h高的楼上落下，每次落地弹起后的高度为上次的bounce（2/3）,在window（1.5米）出的人可以看见几次小球；
+    //不满足条件的输出-1；
+    // if(h>0 && h>window && bounce>0 && bounce<1){
+    //     let num=1;
+    //     while(h*Math.pow(bounce,num)>window){
+    //         num++
+    //     }
+    //     return num*2-1;
+    // }else{
+    //     return -1
+    // }
+    
+    //other 
+    let num=-1;
+    if(bounce>0 && bounce<1)while(h>window)num+=2,h*=bounce;
+    return num;
+}    
+console.log(bouncingBall(30.0, 0.66, 1.5));
+</script>
+</body>
+</html>
