@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>sumStrings</title>
+</head>
+<body>
+<script>
+// function sumStrings(a,b) { 
+//    let result=[],count=0;
+//    if(a.length<b.length)b=[a,a=b][0];
+//        b=Array(a.length-b.length+1).join("0")+b;
+//    let Arr=a.split(""),Brr=b.split("");
+//    for(let i=0;i<a.length;i++){
+//        let temp=Number(Arr.pop())+Number(Brr.pop())+count;
+//        temp>=10?[count,temp]=[1,temp-10]:count=0;
+//        result.push(temp);
+//    }
+//    result.push(count);
+//    return result.reverse().join("").replace(/^0+/,"");
+// }  
+
+function sumStrings(a,b){
+    let res="",c=0;
+    let arrA=a.split("");
+    let arrB=b.split("");
+    while(arrA.length || arrB.length || c){
+       c+=~~arrA.pop() + ~~arrB.pop();
+       res=c%10+res;
+       c=c>9;
+       console.log(9%10);
+    }
+   
+     return res.replace(/^0+/,"");
+}
+
+console.log(sumStrings('712569312664357328695151392', '8100824045303269669937'))
+
+
+</script>    
+</body>
+</html>
