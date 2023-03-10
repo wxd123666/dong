@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>createRestApi</title>
+</head>
+<body>
+<script>
+   class TestController {
+      constructor(dataSource) {
+        this.source = dataSource
+      }
+
+      dispatch(req) {
+        switch (req.method) {
+          case 'GET':
+            return this.getEntities(req)
+          case 'POST':
+            return this.createEntity(req)
+          case 'DELETE':
+            return this.deleteEntity(req)
+          case 'PUT':
+            return this.updateEntity(req)
+        }
+      }
+
+      createEntity(req) {
+        if (Object.keys(req.payload).length === 0) {
+          return this.clientError()
+        }
+        this.source.push(req.payload)
+        return {
+          status: 201,
+          body: [req.payload]
+        }
+      }
+
+      getEntities(req) {
+        const [key, value] = this.parseQuery(req.query)
+        const entites = key !== ''
+          ? this.source.filter(entity => entity[key] == value)
+          : [...this.source]
+
+        return {
+          status: 200,
+          body: entites
+        }
+      }
+
+      updateEntity(req) {
+        if (Object.keys(req.payload).length === 0 || req.query === '') {
+          return this.clientError()
+        }
+
+        const [key, value] = this.parseQuery(req.query)
+        const elementToReplace = this.source.find(element => element[key] == value)
+
+        if (elementToReplace === undefined) {
+          return this.clientError()
+        }
+
+        this.source[this.source.indexOf(elementToReplace)] = req.payload
+
+        return {
+          status: 202,
+          body: [req.payload]
+        }
+      }
+
+      deleteEntity(req) {
+        if (req.query === '') {
+          return this.clientError()
+        }
+
+        const [key, value] = this.parseQuery(req.query)
+        const elementsToDelete = this.source.filter(element => element[key] == value)
+
+        if (elementsToDelete.length === 0) {
+          return this.clientError();
+        }
+
+
+        this.source = this.source.filter(el => !elementsToDelete.includes(el))
+
+        return {
+          status: 200,
+          body: []
+        }
+      }
+
+      clientError() {
+        return {
+          status: 400,
+          body: []
+        }
+      }
+
+      parseQuery(query) {
+        return query.slice(1).split('=')
+      }
+    }
+</script>
+</body>
+</html>
