@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="http://localhost:3002/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+       var sock=io.connect("ws://localhost:3002/");
+       window.onload=function(){
+
+         var btnReg=document.getElementById("reg");
+         var btnLogin=document.getElementById("login");
+         var oUser=document.getElementById("user");
+         var oPass=document.getElementById("pass");
+
+         sock.on("reg_ret",(code,msg)=>{
+           if(code){
+             alert("注册失败"+msg);
+           }else{
+             alert(msg);
+           }
+         });
+         sock.on("login_ret",(code,msg)=>{
+           if(code){
+             alert("登陆失败"+msg);
+           }else{
+             alert(msg);
+           }
+         });
+         btnReg.onclick=function(){
+            sock.emit('reg',oUser.value,oPass.value);
+         }
+         btnLogin.onclick=function(){
+           sock.emit("login",oUser.value,oPass.value);
+         }
+       }
+    </script>
+  </head>
+  <body>
+    用户名：<input type="text" id="user" name="" value=""><br/>
+    密码：<input type="password" id="pass" name="" value=""><br/>
+    <button type="button" id="reg" name="button">reg</button>
+    <button type="button" id="login" name="button">login</button>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+function gap(g,m,n){
+    function prime(num){
+        for(var i = 2 ; i*i <= num ; i ++){
+            if( num%i==0){
+                return false
+                break
+            }
+        }
+        return true
+    }
+
+   
+   let result=null;
+   let temp=[];
+   for(let i=m;i<n;i++){
+       if(prime(i)){
+           if(temp.length>0){
+                if(i-temp[0]==g){
+                    result=[temp[0],i];
+                    break;
+                }else{
+                    temp[0]=i;
+                }
+           }else{
+               temp.push(i)
+           }
+       }
+   }
+   return result;
+}
+console.log(gap(6,100,110))
+
+console.log(gap(8,300,400))
+function gap(g, m, n) {
+    var lastPrime = 0;
+    var isPrime = function(x) { 
+      for (var i=2; i*i<=x; i++) { if (x % i == 0) return false; } return true;
+    }
+    
+    for(var i = m; i <= n; i++)
+        if(isPrime(i)) {
+            if(i - lastPrime == g) return [lastPrime, i];
+            else lastPrime = i;
+        }
+      
+    return null;
+}
+</script>    
+</body>
+</html>

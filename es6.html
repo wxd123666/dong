@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// async function async1(){
+//     console.log('async1 start')
+//     await async2()
+//     console.log('async1 end')
+// }
+// async function async2(){
+//     console.log('async2')
+// }
+// console.log('script start')
+// setTimeout(function(){
+//     console.log('setTimeout') 
+// },0)  
+// async1();
+// new Promise(function(resolve){
+//     console.log('promise1')
+//     resolve();
+// }).then(function(){
+//     console.log('promise2')
+// })
+// console.log('script end')
+
+// function dog(name,size){
+//    this.name=name;
+//    this.size=size;
+// }
+// dog.prototype.color=function(red){
+//     console.log(this.name)
+// }
+// let p=new dog("d",12,"ye");
+// function classType(t,...arg){
+//      //dog.call(this,t,...arg);
+
+// }
+// classType.prototype=new dog("dd",12);
+// let p2=new classType();
+// p2.color();
+window.onload=function(){
+
+
+var item=document.querySelectorAll(".ul li");
+console.log(item.length);
+for(i=0;i<item.length;i++){
+    let index=this.i;
+    console.log(index);
+    item[i].onclick=function(){
+      console.log("w",index)
+    }
+}
+}
+
+        </script>
+        <ul class="ul">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+       
+</body>
+</html>

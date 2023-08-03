@@ -26,18 +26,18 @@ function sumStrings(a,b){
     let res="",c=0;
     let arrA=a.split("");
     let arrB=b.split("");
-    while(arrA.length || arrB.length || c){
+    while(arrA.length || arrB.length ||c){
        c+=~~arrA.pop() + ~~arrB.pop();
        res=c%10+res;
        c=c>9;
-       console.log(9%10);
+       
     }
    
      return res.replace(/^0+/,"");
 }
 
 console.log(sumStrings('712569312664357328695151392', '8100824045303269669937'))
-
+console.log(sumStrings('12', '15'))
 
 </script>    
 </body>

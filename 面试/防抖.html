@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>防抖,节流</title>
+</head>
+<body>
+  <button class="button">防抖</button>
+  <button class="button2">节流</button>
+  <script>
+      function debounce(fun, wait) {
+        let timer = null;
+
+        return function () {
+          const argu = arguments;
+          // 事件触发，如果之前有等待的事件，则清空计时，重新进行事件等待执行
+          if (timer) {
+            clearTimeOut(timer);
+          }
+          timer = setTimeout(function () {
+            fun.apply(this, argu);
+          }, wait);
+        }
+      }
+
+      // 调用
+      debounce(fun, 1000)(1, 2);
+  function fun(a,b){
+    console.log(a,b)
+  }
+
+  
+  document.querySelector('.button').addEventListener('click',function(){
+     debounce(fun,3000)(1, 2)
+    // if(timer){
+    //   clearTimeout(timer)
+    // }
+    // setTimeout(()=>{
+    // console.log('113')
+
+    // },2000)
+  })
+  //节流
+  function throttle(fn,deley = 200){
+    let bool = true
+    return function (){
+      if(bool){
+        bool = false
+      }
+      let args = arguments
+      setTimeout(function(){
+         fn.apply(this,args)
+         bool = true
+      },deley)
+    }
+  }
+  document.querySelector('.button2').addEventListener('click', function () {
+    throttle(fun, 3000)(1, 2)
+  })
+  </script>
+</body>
+</html>

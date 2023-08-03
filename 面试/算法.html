@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  //计算数组中某个元素重复出现的个数
+    var arr = ["apple", "orange", "apple", "orange", "pear", "orange"];
+    function getWords(array) {
+      return array.reduce((prev, item) => {
+        prev[item] = (prev[item] + 1) || 1
+        return prev
+      }, {})
+    }
+    function getWords2(array) {
+      let obj = {}
+      for (let i = 0; i < array.length; i++) {
+        let item = arr[i];
+        obj[item] = obj[item] + 1 || 1
+
+      }
+      return obj
+    }
+    console.log(getWords(arr))
+    console.log(getWords2(arr))
+
+    //
+    function myNew(fn,...args){
+        let obj = {}
+        obj.__proto__ = fn.prototype
+        fn.apply(obj,args)
+        return obj
+    }
+    // input [3,10,7,4,6]
+    // output [7,4,3,6,10] 奇数升序，偶数降序
+    let arr = [9, 4, 7, 6, 10, 3]
+    function arraysort(arr) {
+      let even = []
+      let odd = []
+      let oddi = []
+      arr.map((item, i) => {
+        if (item % 2 == 1) {
+          odd.push(item)
+          oddi.push(i)
+        }
+      })
+      let num = 0
+      oddi.map((item, i) => {
+        arr.splice(oddi[i] - num, 1)
+        num++
+      })
+      odd.sort((a, b) => a - b)
+      arr.sort((a, b) => b - a)
+      odd.map((item, i) => {
+        arr.splice(oddi[i], 0, item)
+      })
+      console.log(odd, oddi, arr)
+    }
+    arraysort(arr)
+  </script>
+</body>
+</html>

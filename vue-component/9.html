@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Components</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        Hello Vue
+    </div>
+    <script>
+        const myComponent = Vue.extend({
+            template: '<div>from extend</div>'
+        });
+
+        new myComponent().$mount('#app');
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Components</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        Hello Vue
+        <my-component :init-count="count"></my-component>
+    </div>
+    <script>
+        // 局部注册
+        const Child = {
+            props: {
+                initCount: Number
+            },
+            template: '<div>我是局部注册的组件{{ message }}{{ count }}</div>',
+            data () {
+                return {
+                    message: 'Hello Component',
+                    count: this.initCount
+                }
+            },
+            methods: {
+                change () {
+                    this.count = 2;
+                }
+            }
+        };
+
+        new Vue({
+            el: '#app',
+            components: {
+                'my-component': Child
+            },
+            data: {
+                count: 1
+            }
+        })
+    </script>
+</body>
+</html>

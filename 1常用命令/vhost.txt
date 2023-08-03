@@ -1,0 +1,45 @@
+server
+    {
+        listen 80;
+        #listen [::]:80;
+        server_name awesome.icamps.cn webchat.awesome.icamps.cn union.awesome.icamps.cn m.awesome.icamps.cn ;
+        index index.html index.htm index.php default.html default.htm default.php;
+        root  /home/wwwroot/paimitest;
+
+        include rewrite/none.conf;
+        #error_page   404   /404.html;
+
+        # Deny access to PHP files in specific directory
+        #location ~ /(wp-content|uploads|wp-includes|images)/.*\.php$ { deny all; }
+
+        location / {
+                index index.html index.htm index.php;
+                #autoindex on;
+                if (!-e $request_filename){
+                        rewrite ^(.*)$ /index.php?s=/$1 last;
+                        break;
+                }
+        }
+        include enable-php.conf;
+
+        location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$
+        {
+            expires      30d;
+        }
+
+        location ~ .*\.(js|css)?$
+        {
+            expires      12h;
+        }
+
+        location ~ /.well-known {
+            allow all;
+        }
+
+        location ~ /\.
+        {
+            deny all;
+        }
+
+        access_log off;
+    }

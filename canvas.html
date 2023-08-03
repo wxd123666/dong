@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>canvas划线</title>
+    <style media="screen">
+      #canvas{background: #ccc;}
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function addEvent(obj,xEvent,fn) {
+          if(obj.attachEvent){
+            obj.attachEvent('on'+xEvent,fn);
+          }else{
+            obj.addEventListener(xEvent,fn,false);
+          }
+      }
+      window.onload=function(){
+        var canvas=document.getElementById("canvas");
+        var gd=canvas.getContext("2d");
+        function drawLine(x,y,X,Y){
+            gd.beginPath();
+            gd.moveTo(x,y);
+            gd.lineTo(X,Y);
+            gd.strokeStyle="#000000";
+            gd.lineWidth="1px";
+            // gd.rotate((Math.PI/180)*5);
+            gd.closePath();
+            gd.stroke();
+          }
+
+          addEvent(canvas,'mousewheel',onMouseWheel);
+          addEvent(canvas,'DOMMouseScroll',onMouseWheel);
+          // 当滚轮事件发生时，执行onMouseWheel这个函数
+          function onMouseWheel(e) {
+            var x=100;
+            var y=100;
+            console.log(e.pageX);
+            drawLine(100,100,e.pageX,e.pageY);
+
+
+          }
+
+
+      }
+    </script>
+    <canvas id="canvas" width="500" height="500"></canvas>
+  </body>
+</html>

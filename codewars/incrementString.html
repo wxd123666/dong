@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>incrementString</title>
+</head>
+<body>
+<script>
+function incrementString(strng){
+    if (!strng.match(/\d+$/)){
+    return strng + '1'
+  } else {
+     return strng.replace(/\d+$/,v => {
+            let n = v.length
+            let a = (parseInt(v) + 1).toString().length
+            if (n>a) {
+              return new Array(n - a + 1).join('0') + (parseInt(v) + 1)
+            } else {
+              return parseInt(v) + 1
+            }
+         })
+  }
+}    
+console.log(incrementString("foo"))
+
+
+// function incrementString(input) {
+//   if(isNaN(parseInt(input[input.length - 1]))) return input + '1';
+//   return input.replace(/(0*)([0-9]+$)/, function(match, p1, p2) {
+//     console.log('match is ' + match)  // 00999
+//     console.log('p1 is ' + p1)        // 00
+//     console.log('p2 is ' + p2)        // 999
+//     var up = parseInt(p2) + 1;
+//     return up.toString().length > p2.length ? p1.slice(0, -1) + up : p1 + up;
+//   });
+
+// }
+</script>
+
+</body>
+</html>

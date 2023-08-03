@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div onclick="console.log('div')">
+    <p onclick="console.log('p')">
+      Click here!
+    </p>
+  </div>
+  <script>
+//   let c = 4
+// function addX(x) {
+//   return function(n) {
+//      return n + x
+//   }
+// }
+// const addThree = addX(3)
+// let d = addThree(c)
+// console.log('example partial application', addX(3)(4), d)
+
+  // async function ab(){
+  //   console.log('1')
+  //   await console.log('2')
+  //   console.log('3')
+  // }
+  // ab()
+  // new Promise((resolve)=>{
+  //   console.log('4')
+  //   resolve()
+  // }).then(()=>{
+  //   console.log('5')
+  // })
+
+// console.log(void());
+// promise.all()
+  // 组件注意事项   \    赋值运算符
+  // 执行上下文
+  // 原型、继承、浏览器垃圾回收机制
+  // var radius=2
+  //  function getPersonInfo(one, two, three) {
+  //     console.log(one);
+  //     console.log(two);
+  //     console.log(three);
+  //   }
+
+  //   const person = "Lydia";
+  //   const age = 21;
+
+  //   getPersonInfo`${person} is ${age} years old`;
+    
+  
+    
+    // const obj = { 1: "a", 2: "b", 3: "c" };
+    //   const set = new Set([1, 2, 3, 4, 5]);
+
+    //   console.log(obj.hasOwnProperty("1"));
+    //   console.log(obj.hasOwnProperty(1));
+    //   console.log(set.has("1"));
+    //   console.log(set.has(1));
+
+
+  class Chameleon {
+    static colorChange(newColor) {
+      console.log(this.name+'11') 
+    }
+
+    constructor({ newColor = "green" } = {}) {
+      this.newColor = newColor;
+    }
+    say(a){
+       console.log(this.colorChange+'22')
+    }
+  }
+
+  const freddie = new Chameleon({ newColor: "purple" });
+  // freddie.colorChange("orange");
+  console.log(freddie.say())
+
+
+    
+  </script>
+</body>
+</html>

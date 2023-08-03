@@ -1,0 +1,1 @@
+var p = {    name: { first: "Se%\color{blue}\'{a}%n", last: "O'Brien" },    country: "Ireland",    birth: { year: 1981, month: 2, day: 17 },    kidNames: { 1: "Ciara", 2: "Bearach", 3: "M%\color{blue}\'{a}%ir%\color{blue}\'{e}%ad", 4: "Aisling" }};

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var isValid = function (s) {
+        const pair = { '{': '}', '[': ']', '(': ')' }
+        const stack = []
+        // const stringarr = s.split('')
+        for (let i of s) {
+          // console.log(i in pair,'000')
+          if(i in pair) {
+            stack.push(i)
+          }else {
+            if(stack.length === 0) return false
+            if(i === ')' && stack.pop() !== '(') return false
+            if(i === '}' && stack.pop() !== '{') return false
+            if(i === ']' && stack.pop() !== '[') return false
+          }
+          
+        }
+        return stack.length === 0
+      };
+      console.log(isValid('(()){}{}'))
+  </script>
+</body>
+</html>

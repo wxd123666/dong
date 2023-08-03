@@ -1,0 +1,1 @@
+var payload = JSON.parse(?\uq?{ "username": "victim", "password":                             "uh-oh!" }?\uq?);

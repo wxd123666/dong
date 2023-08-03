@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Components</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <com-a :count="1"></com-a>
+    </div>
+    <script>
+        Vue.component('com-a', {
+            name: 'comA',
+            props: {
+                count: {
+                    type: Number,
+                    default: 1
+                }
+            },
+            template: '<div @on-click @click="handleClick"><com-a :count="count +1" v-if="count < 3"></com-a>{{count}}</div>',
+            methods: {
+                handleClick () {
+                    this.$emit('on-click')
+                }
+            }
+        });
+        new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Components</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+        <component-a ref="a"></component-a>
+        <component-a ref="b"></component-a>
+    </div>
+    <script>
+        const bus = new Vue({
+            data,
+            computed,
+            methods
+        });
+
+        Vue.component('component-a', {
+            data () {
+                return {
+                    msg: 1
+                }
+            },
+            template: '<button @click="handleEvent">传递事件</button>',
+            methods: {
+                handleEvent () {
+
+                    this.$parent
+
+                    bus.$emit('on-message', '来自组件 com-a 的内容');
+                }
+            }
+        });
+
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: ''
+            },
+            mounted () {
+                bus.$on('on-message', (msg) => {
+                    this.message = msg;
+                });
+
+                this.$children.msg = 2;
+
+
+                this.$refs.
+
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Components</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <child-component></child-component>
+        <script type="text/x-template" id="my-com">
+            <div></div>
+        </script>
+    </div>
+    <script>
+        Vue.component('child-component', function (resolve, reject) {
+            window.setTimeout(function () {
+                resolve({
+                    template: '<div>来自异步的内容</div>'
+                })
+            }, 2000)
+        });
+        new Vue({
+            el: '#app',
+            created () {
+                this.$nextTick(() => {
+
+                });
+            }
+        })
+    </script>
+</body>
+</html>

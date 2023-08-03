@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>重载</title>
+</head>
+<body>
+  <script>
+  // 重写和重载的区别：重载是定义相同的方法名，参数不同，重写是子类重写父类的方法；
+  // 重载是在一个类中，重写是子类与父类之间；
+  // 重载是编译时（高级程序语言翻译成计算机语言）的多态性，重写时运行时的多态性。
+  
+  // function fn(){
+  //   switch(arguments.length){
+  //     case 1:
+  //       var [name] = arguments
+  //       console.log(`${name}`);
+  //       break;
+  //     case 2:
+  //       var [name,age] = arguments
+  //       console.log(`${name}-${age}`);
+  //       break;
+  //     case 3:
+  //       var [name,age,sport] = arguments
+  //       console.log(`${name}-${age}-${sport}`);
+  //       break;
+        
+
+  //   }
+       
+  // }
+  // fn('zs')
+  // fn('zs',20)
+  // fn('zs',20,'羽毛')
+
+function addmethod(object,name,fn){
+  var old = object[name]
+  object[name] = function(){
+    console.log(arguments,'----')
+     if(fn.length == arguments.length){
+       return fn.apply(this,arguments)
+     }else if (typeof old === "function") {
+       return old.apply(this,arguments)
+     }
+
+  }
+     
+
+}
+let data = {
+  name:'大彬',
+  age:30,
+  sport:'羽毛'
+
+}
+  addmethod(window,'fn',(name) => console.log(`${name}`))
+  addmethod(window, 'fn', (name,age) => console.log(`${name}-${age}`))
+  addmethod(data, 'fn', (name, age) => console.log(`${name}-${age}`))
+      
+  window.fn('name')
+  window.fn('name','90')
+  data.fn(data.name,data.age)
+</script>
+</body>
+</html>

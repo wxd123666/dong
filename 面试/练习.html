@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>promise 深拷贝 排序 array</title>
+</head>
+<body>
+  <script>
+  // new Promise((resolve,reject) => {
+  //   console.log(1);
+  //   // resolve(3)
+
+  //   reject('reject')
+  // }).then((res,rej) => {
+  //   console.log(rej)
+  // })
+  // .catch(res=>{
+  //   console.log(res)
+
+  // })
+  // const getJSON = function (url) {
+  //     const promise = new Promise(function (resolve, reject) {
+  //       const handler = function () {
+  //         if (this.readyState !== 4) {
+  //           return;
+  //         }
+  //         if (this.status === 200) {
+  //           resolve(this.response);
+  //         } else {
+  //           reject(new Error(this.statusText));
+  //         }
+  //       };
+  //       const client = new XMLHttpRequest();
+  //       client.open("GET", url);
+  //       client.onreadystatechange = handler;
+  //       client.responseType = "json";
+  //       client.setRequestHeader("Accept", "application/json");
+  //       client.send();
+
+  //     });
+
+  //     return promise;
+  //   };
+
+  //   getJSON("./posts.json").then(function (json) {
+  //     console.log('Contents: ' + json);
+  //   }, function (error) {
+  //     console.error('出错了', error);
+  //   });
+     //``````
+    // Promise.resolve().then(() => {
+    //     console.log(0);
+    //     return Promise.resolve(4);
+    //   }).then((res) => {
+    //     console.log(res)
+    //   })
+
+    // Promise.resolve().then(() => {
+    //   console.log(1);
+    // }).then(() => {
+    //   console.log(2);
+    // }).then(() => {
+    //   console.log(3);
+    // }).then(() => {
+    //   console.log(5);
+    // }).then(() => {
+    //   console.log(6);
+    // }).catch(()=>{
+    //   console.log('rej')
+    // })
+     //``````
+  // let obj = { name: 'ConardLi' }
+  // const target = new Map();
+  // target.set(obj, 'code秘密花园');
+  //   console.log(target,obj);
+    var die1,die2=Math.floor((Math.random()*6)+1)
+    
+  </script>
+</body>
+</html>

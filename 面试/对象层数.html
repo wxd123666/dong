@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>对象层数</title>
+</head>
+<body>
+ <script>
+  const obj = {
+      a: { b: [1] },
+      c: { d: { e: { f: 1 } } }
+    }
+
+    // console.log(loopGetLevel(obj)) // 4
+
+function loopGetLevel(obj){
+   var res = 1
+   const comput=(obj,level)=>{
+     var level = level ? level : 0
+     if(typeof obj === 'object'){
+        for(let i in obj){
+          if(typeof obj[i] === "object"){
+            comput(obj[i],level+1)
+          }else{
+            res = level + 1
+          }
+        }
+     }else{
+       res = res > level ? res : level
+     }
+   }
+   comput(obj)
+   return res
+}
+  console.log(loopGetLevel(obj))
+ </script> 
+</body>
+</html>
