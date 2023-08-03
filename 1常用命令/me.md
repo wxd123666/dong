@@ -1,3 +1,24 @@
+## nacos 启动
+
+路径：/Users/wuxiaodong/Application/nacos
+cd  /nacos/bin
+sh startup.sh -m standalone
+
+访问：localhost:8848/nacos，输入默认账号密码：nacos，nacos
+
+关闭服务器
+sh shutdown.sh
+
+Windows
+shutdown.cmd
+
+## redis启动
+   启动  brew services start redis
+
+   查看启动的列表 brew services list  # 该命令可以看到在mac上所有服务目前的状况。
+
+
+-----------------------------
 打开mingodb
 
 1,第一种
